@@ -10,23 +10,7 @@ A beginner-friendly Flask REST API, command-line client, and pytest suite. Inven
 - `tests/` — API and CLI tests
 - `requirements.txt` — dependencies
 
-## Setup (Windows PowerShell)
-
-Open PowerShell in this folder:
-
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-py -m pip install -r requirements.txt
-```
-
-If PowerShell blocks activation, use Command Prompt instead:
-
-```bat
-.venv\Scripts\activate.bat
-```
-
-Start the API in one terminal:
+Started the API in one terminal:
 
 ```powershell
 py app.py
@@ -77,7 +61,7 @@ Example JSON for `POST /inventory`:
 
 The API validates required fields and non-negative price/stock values. Product imports set price and stock to `0` because OpenFoodFacts is a food-product database, not a store's pricing or stock system. Employees can update those fields afterward.
 
-## Run tests
+## Runned tests
 
 With the virtual environment active:
 
@@ -86,23 +70,3 @@ py -m pytest -v
 ```
 
 External API calls are mocked in tests, so the test suite does not depend on internet access.
-
-## Git workflow suggestion
-
-```powershell
-git init
-git add .
-git commit -m "Create inventory API foundation"
-git switch -c feature/crud
-git add app.py tests
-git commit -m "Implement inventory CRUD routes"
-git switch -c feature/openfoodfacts
-git add external_api.py
-git commit -m "Integrate OpenFoodFacts lookup"
-```
-
-For a class workflow, push each feature branch to GitHub, open pull requests, merge them, and remove merged branches as required by your rubric.
-
-## Notes
-
-This is a learning project. It uses in-memory storage and has no authentication or database persistence. Do not use it as-is for a production store.
